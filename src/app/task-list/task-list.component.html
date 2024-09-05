@@ -1,0 +1,15 @@
+<div>
+    <input #taskInput placeholder="Add a task" />
+    <button (click)="onAddTask(taskInput.value); taskInput.value=''">Add Task</button>
+  </div>
+  
+  <ul>
+    <li *ngFor="let task of tasks">
+      <app-task-item
+        [task]="task"
+        (toggle)="onToggleTaskCompletion(task.id)"
+        (delete)="onDeleteTask(task.id)">
+      </app-task-item>
+    </li>
+  </ul>
+  
